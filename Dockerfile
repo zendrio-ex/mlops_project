@@ -2,7 +2,9 @@ FROM python:3.8
 
 COPY pyproject.toml poetry.lock ./
 
-RUN pip install poetry && poetry install --no-dev && python -m spacy download en_core_web_sm
+RUN pip install poetry && poetry config virtualenvs.in-project true && poetry install --no-dev
+
+RUN . .venv/bin/activate && spacy download en_core_web_sm
 
 COPY src ./src
 

@@ -5,5 +5,5 @@ settings = Dynaconf(
     environments=True,
     load_dotenv=True,
     envvar_prefix="DYNACONF",
-    settings_files=['settings.json', 'settings.local.json'],
+    settings_files=['src/settings.json', 'src/settings.local.json'],
 )

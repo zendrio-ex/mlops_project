@@ -53,7 +53,6 @@ class Model(nn.Module):
 
 
 class Preparation:
-    nlp = spacy.load('en_core_web_sm')
     
     @staticmethod
     def https_rem(text):
