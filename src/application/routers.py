@@ -19,7 +19,7 @@ def get_score(data: TextPayload):
                      return_token_type_ids=True)
     print(text)
     score = model(**text)[0][1]
-    
+
     return {
         "requestId": request_id.get(),
         "data": {

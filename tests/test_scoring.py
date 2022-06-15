@@ -1,7 +1,6 @@
-from src.application.routers import get_score
 import pytest
+from src.application.routers import get_score
 from src.application.utils import TextPayload
-import json
 
 # from fastapi.testclient import TestClient
 # from src.main import app
@@ -10,7 +9,8 @@ import json
 
 @pytest.mark.parametrize("text, result", [('Hello, world!', 0.0005),
                                           ('Fire and terrorism', 0.9997),
-                                         ])
+                                          ]
+                         )
 def test_check_scoring(text, result):
     payload = {
              "text": text

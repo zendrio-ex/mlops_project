@@ -7,6 +7,7 @@ import re
 
 SPACE_DIMESION = 20
 
+
 class ScoreResponse(BaseModel):
     class ScoreResponseData(BaseModel):
         score: float
@@ -35,7 +36,7 @@ class RequestId:
 
     def get(self):
         return self.id
-    
+
 
 class Model(nn.Module):
     def __init__(self):
@@ -53,7 +54,7 @@ class Model(nn.Module):
 
 
 class Preparation:
-    
+
     @staticmethod
     def https_rem(text):
         return re.compile(r'https?://\S+').sub(r' https', text)
@@ -67,11 +68,11 @@ class Preparation:
     def lemmatization(text: str, nlp) -> str:
         text_ = nlp(text)
         return ' '.join([el.lemma_ for el in text_])
-    
+
     @staticmethod
     def remove_multiple_spaces(text):
         return re.sub(' +', ' ', text)
-    
+
     @staticmethod
     def pipeline(text, nlp):
         text = Preparation.remove_punctuations(Preparation.https_rem(text)).lower()
