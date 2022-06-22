@@ -13,7 +13,7 @@ from src.application.utils import TextPayload
                          )
 def test_check_scoring(text, result):
     payload = {
-             "text": text
+        "text": text
     }
     score = get_score(data=TextPayload(text=payload['text']))['data']['score']
     assert round(score.item(), 4) == result

@@ -16,6 +16,7 @@ spacy = "^3.3.0"
 transformers = "^4.19.2"
 torch = "^1.11.0"
 gdown = "^4.4.0"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"

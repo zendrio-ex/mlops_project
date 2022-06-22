@@ -2,7 +2,7 @@ import uuid
 import traceback
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from src.application.routers import router
+from src.application.routers import router, info_router
 from src.application.utils import request_id
 from loguru import logger
 
@@ -29,6 +29,7 @@ def create_app():
 
     app.middleware('http')(request_middleware)
 
+    app.include_router(info_router)
     app.include_router(router)
 
     logger.info("service was run")

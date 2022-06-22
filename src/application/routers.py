@@ -1,7 +1,17 @@
 from fastapi import APIRouter
+import os
+import toml
 from src.application.utils import ScoreResponse, TextPayload, Preparation, request_id, nlp, model, tokenizer, SPACE_DIMESION
 
 router = APIRouter()
+info_router = APIRouter(prefix='/info')
+
+
+@info_router.get('/version', tags=['Info'])
+def version():
+    path = os.path.join(os.getcwd(), 'pyproject.toml')
+    parsed_pyproject = toml.load(path)
+    return {'version': parsed_pyproject['tool']['poetry']['version']}
 
 
 @router.post("/disaster_prediction",
