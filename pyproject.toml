@@ -12,7 +12,7 @@ fastapi = "^0.76.0"
 dynaconf = "^3.1.8"
 uvicorn = "^0.17.6"
 uuid = "^1.30"
-spacy = "^3.3.0"
+spacy = {extras = ["en_core_web_sm"], version = "^3.3.1"}
 transformers = "^4.19.2"
 torch = "^1.11.0"
 gdown = "^4.4.0"

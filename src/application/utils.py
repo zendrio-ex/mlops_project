@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from transformers import BertTokenizer, BertModel
 import spacy
 import torch
+import os
 import torch.nn as nn
 import re
 
@@ -82,7 +83,11 @@ class Preparation:
 
 request_id = RequestId()
 
-nlp = spacy.load('en_core_web_sm')
+try:
+    nlp = spacy.load('en_core_web_sm')
+except OSError:
+    os.system("spacy download en_core_web_sm")
+    nlp = spacy.load('en_core_web_sm')
 
 model = Model()
 model.load_state_dict(torch.load("./model/model.pth", map_location="cpu"))
